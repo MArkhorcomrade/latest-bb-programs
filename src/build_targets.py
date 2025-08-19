@@ -1,43 +1,31 @@
+import json, os
 
-# src/build_targets.py
-import os, json, re, urllib.parse
-
-LATEST = "data/latest/programs.json"
-OUT_DIR = "out"
-os.makedirs(OUT_DIR, exist_ok=True)
-
-def host_from_url(u: str):
-    try:
-        return urllib.parse.urlparse(u).hostname
-    except Exception:
-        return None
+DATA_DIR = "data"
+OUTPUT_DIR = "data/latest"
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "programs.json")
 
 def main():
-    with open(LATEST, "r", encoding="utf-8") as f:
-        programs = json.load(f)
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    domains = set()
-    for p in programs:
-        in_scope = (p.get("targets") or {}).get("in_scope") or p.get("in_scope") or []
-        for t in in_scope:
-            asset_type = (t.get("type") or t.get("asset_type") or "").upper()
-            target = (t.get("target") or t.get("asset_identifier") or "").strip()
-            if not target:
-                continue
+    programs = []
 
-            if asset_type in {"DOMAIN", "WILDCARD"}:
-                # strip leading *.
-                target = re.sub(r"^\*\.", "", target)
-                domains.add(target.lower())
-            elif asset_type == "URL":
-                h = host_from_url(target)
-                if h:
-                    domains.add(h.lower())
+    # loop over all platform JSON files in data/
+    for file in os.listdir(DATA_DIR):
+        if file.endswith(".json") and file != "latest":
+            path = os.path.join(DATA_DIR, file)
+            with open(path, "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                    programs.extend(data)  # add all items
+                    print(f"✅ Added {len(data)} from {file}")
+                except Exception as e:
+                    print(f"⚠️ Could not parse {file}: {e}")
 
-    targets_path = os.path.join(OUT_DIR, "targets.txt")
-    with open(targets_path, "w", encoding="utf-8") as f:
-        f.write("\n".join(sorted(domains)))
-    print(f"Wrote {targets_path} with {len(domains)} hosts")
+    # save merged file
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(programs, f, indent=2)
+
+    print(f"\n🎉 Merged {len(programs)} programs into {OUTPUT_FILE}")
 
 if __name__ == "__main__":
     main()
