@@ -1,0 +1,36 @@
+name: Update Bug Bounty Programs
+
+on:
+  schedule:
+    - cron: '0 6 * * *'   # every day at 6:00 AM UTC
+  workflow_dispatch:      # allow manual runs
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install -r src/requirements.txt
+
+      - name: Run update script
+        run: |
+          python src/fetch_latest.py
+          python src/build_targets.py
+          python src/report.py
+
+      - name: Commit & Push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Daily update $(date)" || echo "No changes to commit"
+          git push
