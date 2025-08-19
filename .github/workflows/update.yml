@@ -1,16 +1,19 @@
-name: Update Bug Bounty Programs
+name: Daily Bug Bounty Update
 
 on:
   schedule:
-    - cron: "0 6 * * *"   # every day at 06:00 UTC
+    - cron: "0 6 * * *"   # run every day at 06:00 UTC
   workflow_dispatch:       # allow manual trigger
 
 permissions:
   contents: write          # allow committing/pushing
+  pages: write
+  id-token: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
@@ -37,13 +40,11 @@ jobs:
           git config --global user.name "github-actions[bot]"
           git add data/
           git commit -m "Daily update $(date -u)" || echo "No changes to commit"
-          git push
-      - name: Push changes
-        run: |
-           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-           git config --global user.name "github-actions[bot]"
-           git add data/
-           git commit -m "Daily update $(date -u)"
-           git push
-        env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          git pull --rebase origin main || true
+          git push origin main --force
+
+      - name: Upload report to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./data
