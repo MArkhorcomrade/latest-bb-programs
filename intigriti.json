@@ -1633,6 +1633,41 @@
     }
   },
   {
+<<<<<<< HEAD
+=======
+    "id": "81dbfcb8-2d48-4445-8417-c5a5ae0a1a17",
+    "name": "Challenge 0825",
+    "company_handle": "intigriti",
+    "handle": "challenge0825",
+    "url": "https://www.intigriti.com/programs/intigriti/challenge0825/detail",
+    "status": "open",
+    "confidentiality_level": "public",
+    "tacRequired": false,
+    "twoFactorRequired": false,
+    "min_bounty": {
+      "value": 0,
+      "currency": "EUR"
+    },
+    "max_bounty": {
+      "value": 0,
+      "currency": "EUR"
+    },
+    "targets": {
+      "in_scope": [
+        {
+          "type": "url",
+          "endpoint": "challenge-0825.intigriti.io",
+          "description": null,
+          "impact": "No Bounty"
+        }
+      ],
+      "out_of_scope": [
+
+      ]
+    }
+  },
+  {
+>>>>>>> 62bb594 (Daily update Wed Aug 20 04:05:15 UTC 2025)
     "id": "96d3f49a-4c5f-4bc8-835a-77f734eefe4e",
     "name": "Citymesh Responsible Vulnerability Disclosure Program",
     "company_handle": "citymesh",
@@ -2166,6 +2201,7 @@
     }
   },
   {
+<<<<<<< HEAD
     "id": "bd22f48d-633e-4b26-bf71-e4778d41b247",
     "name": "DataCamp",
     "company_handle": "datacamp",
@@ -2353,6 +2389,8 @@
     }
   },
   {
+=======
+>>>>>>> 62bb594 (Daily update Wed Aug 20 04:05:15 UTC 2025)
     "id": "8bf1f259-cac9-4114-9b84-3b950897b1ec",
     "name": "De Morgen",
     "company_handle": "dpgm",
@@ -6108,6 +6146,7 @@
     }
   },
   {
+<<<<<<< HEAD
     "id": "64f80113-969e-4c55-9649-8a044487941c",
     "name": "PDQ bug bounty program",
     "company_handle": "pdq",
@@ -6187,6 +6226,8 @@
     }
   },
   {
+=======
+>>>>>>> 62bb594 (Daily update Wed Aug 20 04:05:15 UTC 2025)
     "id": "9ef59fe8-d021-4d23-9521-0d7d01da03ee",
     "name": "PeopleCert VDP",
     "company_handle": "peoplecert",
@@ -8066,6 +8107,7 @@
     }
   },
   {
+<<<<<<< HEAD
     "id": "18058413-5255-4f5c-a9db-c6ac027bb5d6",
     "name": "Soundtrack Your Brand",
     "company_handle": "syb",
@@ -8164,6 +8206,8 @@
     }
   },
   {
+=======
+>>>>>>> 62bb594 (Daily update Wed Aug 20 04:05:15 UTC 2025)
     "id": "8f6c92dc-1300-4f11-8284-29b6ed743378",
     "name": "Speakap Responsible Disclosure",
     "company_handle": "speakap",
