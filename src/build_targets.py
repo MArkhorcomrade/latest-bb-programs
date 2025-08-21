@@ -1,131 +1,101 @@
-import json, os, datetime, csv
-from pathlib import Path
-from jinja2 import Template
+import json
+import os
+from datetime import datetime
+import csv
 
-DATA_DIR = Path("data")
-SNAPSHOT_DIR = DATA_DIR / "snapshots"
-LATEST_FILE = DATA_DIR / "latest" / "programs.json"
-OUT_DIR = Path("out")
+DATA_DIR = "data"
+LATEST = os.path.join(DATA_DIR, "latest", "programs.json")
+SNAPSHOT_DIR = os.path.join(DATA_DIR, "snapshots")
+OUT_DIR = "out"
 
-def load_json(path):
+def find_yesterday_snapshot(today_str):
+    """Find yesterday’s snapshot if available"""
     try:
-        with open(path, "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"⚠️ Could not parse {path}: {e}")
-        return []
+        today = datetime.strptime(today_str, "%Y-%m-%d")
+        yesterday = today.fromordinal(today.toordinal() - 1).strftime("%Y-%m-%d")
+        candidate = os.path.join(SNAPSHOT_DIR, f"{yesterday}.json")
+        return candidate if os.path.exists(candidate) else None
+    except Exception:
+        return None
+
+def save_csv(path, rows, headers):
+    with open(path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.DictWriter(f, fieldnames=headers)
+        writer.writeheader()
+        writer.writerows(rows)
 
 def main():
-    # make dirs
-    SNAPSHOT_DIR.mkdir(parents=True, exist_ok=True)
-    LATEST_FILE.parent.mkdir(parents=True, exist_ok=True)
-    OUT_DIR.mkdir(parents=True, exist_ok=True)
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+    snapshot_file = os.path.join(SNAPSHOT_DIR, f"{today}.json")
 
-    today = datetime.date.today().strftime("%Y-%m-%d")
-    snapshot_file = SNAPSHOT_DIR / f"{today}.json"
+    os.makedirs(SNAPSHOT_DIR, exist_ok=True)
+    os.makedirs(OUT_DIR, exist_ok=True)
 
-    # merge all platform files
-    programs = []
-    for file in DATA_DIR.glob("*.json"):
-        if file.name not in ["latest", "snapshots"]:
-            data = load_json(file)
-            programs.extend(data)
-            print(f"✅ Added {len(data)} from {file.name}")
+    # Load latest merged programs
+    with open(LATEST, "r", encoding="utf-8") as f:
+        programs = json.load(f)
 
-    # save snapshot + latest
-    with open(snapshot_file, "w", encoding="utf-8") as f:
-        json.dump(programs, f, indent=2)
-    with open(LATEST_FILE, "w", encoding="utf-8") as f:
-        json.dump(programs, f, indent=2)
-
-    print(f"\n🎉 Saved snapshot {snapshot_file} ({len(programs)} programs)")
-
-    # detect yesterday file
-    yesterday_file = SNAPSHOT_DIR / f"{(datetime.date.today() - datetime.timedelta(days=1)).strftime('%Y-%m-%d')}.json"
-    old_programs = load_json(yesterday_file) if yesterday_file.exists() else []
-
-    old_ids = {p["id"] for p in old_programs if "id" in p}
-    new_programs = [p for p in programs if p.get("id") not in old_ids]
-
-    # save new programs
-    with open(OUT_DIR / "new_programs.csv", "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["id", "name", "url", "platform"])
-        writer.writeheader()
-        writer.writerows(new_programs)
-
-    print(f"🆕 Found {len(new_programs)} new programs")
-
-    # collect scopes
-    old_scopes = {s for p in old_programs for s in p.get("targets", [])}
-    new_scopes = []
-    all_targets = []
-    wildcards = []
-    domains = []
-
+    # Ensure only dicts are processed
+    clean_programs = []
     for p in programs:
-        for s in p.get("targets", []):
-            all_targets.append(s)
-            if s.startswith("*."):
-                wildcards.append(s)
-            else:
-                domains.append(s)
-            if s not in old_scopes:
-                new_scopes.append({"program": p.get("name"), "scope": s})
+        if isinstance(p, dict):
+            clean_programs.append(p)
+        else:
+            print(f"⚠️ Skipping invalid entry: {p}")
 
-    # save new scopes
-    with open(OUT_DIR / "new_scopes.csv", "w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=["program", "scope"])
-        writer.writeheader()
-        writer.writerows(new_scopes)
+    # Save today’s snapshot
+    with open(snapshot_file, "w", encoding="utf-8") as f:
+        json.dump(clean_programs, f, indent=2)
 
-    # save targets
-    with open(OUT_DIR / "targets.txt", "w", encoding="utf-8") as f:
-        f.write("\n".join(sorted(all_targets)))
-    with open(OUT_DIR / "targets-wildcards.txt", "w", encoding="utf-8") as f:
+    print(f"\n🎉 Saved snapshot {snapshot_file} ({len(clean_programs)} programs)")
+
+    # Load yesterday’s snapshot (if exists)
+    yesterday_file = find_yesterday_snapshot(today)
+    old_ids, old_scopes = set(), set()
+    if yesterday_file:
+        with open(yesterday_file, "r", encoding="utf-8") as f:
+            old_programs = json.load(f)
+            for p in old_programs:
+                if isinstance(p, dict):
+                    if "id" in p:
+                        old_ids.add(p["id"])
+                    for s in p.get("domains", []):
+                        old_scopes.add(s)
+
+    # Identify new programs
+    new_programs = [p for p in clean_programs if p.get("id") not in old_ids]
+
+    # Identify new scopes
+    all_scopes = []
+    for p in clean_programs:
+        if isinstance(p, dict):
+            for s in p.get("domains", []):
+                all_scopes.append({"program": p.get("name", "unknown"), "scope": s})
+
+    new_scopes = [s for s in all_scopes if s["scope"] not in old_scopes]
+
+    # Separate targets into wildcards vs domains
+    wildcards, domains = [], []
+    for s in all_scopes:
+        scope = s["scope"]
+        if scope.startswith("*."):
+            wildcards.append(scope)
+        else:
+            domains.append(scope)
+
+    # Save outputs
+    save_csv(os.path.join(OUT_DIR, "new_programs.csv"), new_programs, headers=["id", "name", "platform"])
+    save_csv(os.path.join(OUT_DIR, "new_scopes.csv"), new_scopes, headers=["program", "scope"])
+
+    with open(os.path.join(OUT_DIR, "targets.txt"), "w", encoding="utf-8") as f:
+        f.write("# Wildcards\n")
         f.write("\n".join(sorted(set(wildcards))))
-    with open(OUT_DIR / "targets-domains.txt", "w", encoding="utf-8") as f:
+        f.write("\n\n# Domains\n")
         f.write("\n".join(sorted(set(domains))))
 
-    print(f"🆕 Found {len(new_scopes)} new scopes, total {len(all_targets)} targets")
-    print(f"📂 Wildcards saved to targets-wildcards.txt ({len(wildcards)})")
-    print(f"📂 Domains saved to targets-domains.txt ({len(domains)})")
-
-    # generate HTML report
-    template = Template("""
-    <html>
-    <head><title>Bug Bounty Programs Report</title></head>
-    <body>
-    <h1>Bug Bounty Programs - {{ today }}</h1>
-    <p>Total Programs: {{ total }}</p>
-    <p>New Programs Today: {{ new_count }}</p>
-    <p>New Scopes Today: {{ scope_count }}</p>
-    <h2>New Programs</h2>
-    <ul>
-      {% for p in new_programs %}
-        <li><a href="{{ p.url }}">{{ p.name }}</a> ({{ p.platform }})</li>
-      {% endfor %}
-    </ul>
-    <h2>New Scopes</h2>
-    <ul>
-      {% for s in new_scopes %}
-        <li>{{ s.program }} → {{ s.scope }}</li>
-      {% endfor %}
-    </ul>
-    </body>
-    </html>
-    """)
-    html = template.render(
-        today=today,
-        total=len(programs),
-        new_count=len(new_programs),
-        scope_count=len(new_scopes),
-        new_programs=new_programs,
-        new_scopes=new_scopes,
-    )
-    with open(OUT_DIR / "index.html", "w", encoding="utf-8") as f:
-        f.write(html)
-
-    print("📊 Report generated at out/index.html")
+    print(f"✅ Found {len(new_programs)} new programs")
+    print(f"✅ Found {len(new_scopes)} new scopes")
+    print(f"✅ Extracted {len(domains)} domains and {len(wildcards)} wildcards")
 
 if __name__ == "__main__":
     main()
