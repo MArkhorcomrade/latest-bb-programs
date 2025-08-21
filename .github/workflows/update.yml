@@ -6,7 +6,7 @@ on:
   workflow_dispatch:       # allow manual trigger
 
 permissions:
-  contents: write          # allow committing/pushing
+  contents: write
   pages: write
   id-token: write
 
@@ -33,6 +33,7 @@ jobs:
           python src/fetch_latest.py
           python src/build_targets.py
           python src/report.py
+          python src/dorking.py   # self-hosted discovery
 
       - name: Commit & Push changes
         run: |
@@ -41,13 +42,18 @@ jobs:
           git add data/
           git commit -m "Daily update $(date -u)" || echo "No changes to commit"
           git pull --rebase origin main || true
-          git push origin main --force
+          git push origin main
 
       - name: Upload report to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./data
-      - name: Run dorking (self-hosted discovery)
-        run: python src/dorking.py
+          publish_dir: ./out
 
+      - name: Upload outputs as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: bugbounty-report-${{ github.run_id }}
+          path: |
+            out/*
+            data/snapshots/*
