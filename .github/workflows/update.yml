@@ -66,5 +66,6 @@ jobs:
           git checkout --ours data/report.html || true
           git add data/report.html
           git commit -m "Daily update $(date -u)" || echo "No changes to commit"
-          git pull --rebase origin main || true
+          git fetch origin main
+          git rebase origin/main || true
           git push origin main
