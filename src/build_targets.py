@@ -1,1 +1,32 @@
-import json, os DATA_DIR = "data" OUTPUT_DIR = "data/latest" OUTPUT_FILE = os.path.join(OUTPUT_DIR, "programs.json") def main(): os.makedirs(OUTPUT_DIR, exist_ok=True) programs = [] # loop over all platform JSON files in data/ for file in os.listdir(DATA_DIR): if file.endswith(".json") and file != "latest": path = os.path.join(DATA_DIR, file) with open(path, "r", encoding="utf-8") as f: try: data = json.load(f) programs.extend(data) # add all items print(f"✅ Added {len(data)} from {file}") except Exception as e: print(f"⚠️ Could not parse {file}: {e}") # save merged file with open(OUTPUT_FILE, "w", encoding="utf-8") as f: json.dump(programs, f, indent=2) print(f"\n🎉 Merged {len(programs)} programs into {OUTPUT_FILE}") if __name__ == "__main__": main()
+
+import json, os
+
+DATA_DIR = "data"
+OUTPUT_DIR = "data/latest"
+OUTPUT_FILE = os.path.join(OUTPUT_DIR, "programs.json")
+
+def main():
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+    programs = []
+
+    # loop over all platform JSON files in data/
+    for file in os.listdir(DATA_DIR):
+        if file.endswith(".json") and file != "latest":
+            path = os.path.join(DATA_DIR, file)
+            with open(path, "r", encoding="utf-8") as f:
+                try:
+                    data = json.load(f)
+                    programs.extend(data)  # add all items
+                    print(f"✅ Added {len(data)} from {file}")
+                except Exception as e:
+                    print(f"⚠️ Could not parse {file}: {e}")
+
+    # save merged file
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(programs, f, indent=2)
+
+    print(f"\n🎉 Merged {len(programs)} programs into {OUTPUT_FILE}")
+
+if __name__ == "__main__":
+    main()
