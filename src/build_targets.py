@@ -59,10 +59,16 @@ def main():
     old_scopes = {s for p in old_programs for s in p.get("targets", [])}
     new_scopes = []
     all_targets = []
+    wildcards = []
+    domains = []
 
     for p in programs:
         for s in p.get("targets", []):
             all_targets.append(s)
+            if s.startswith("*."):
+                wildcards.append(s)
+            else:
+                domains.append(s)
             if s not in old_scopes:
                 new_scopes.append({"program": p.get("name"), "scope": s})
 
@@ -72,11 +78,17 @@ def main():
         writer.writeheader()
         writer.writerows(new_scopes)
 
-    # save targets.txt
+    # save targets
     with open(OUT_DIR / "targets.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(sorted(all_targets)))
+    with open(OUT_DIR / "targets-wildcards.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(sorted(set(wildcards))))
+    with open(OUT_DIR / "targets-domains.txt", "w", encoding="utf-8") as f:
+        f.write("\n".join(sorted(set(domains))))
 
     print(f"🆕 Found {len(new_scopes)} new scopes, total {len(all_targets)} targets")
+    print(f"📂 Wildcards saved to targets-wildcards.txt ({len(wildcards)})")
+    print(f"📂 Domains saved to targets-domains.txt ({len(domains)})")
 
     # generate HTML report
     template = Template("""
