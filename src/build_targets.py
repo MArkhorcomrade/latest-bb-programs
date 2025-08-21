@@ -24,12 +24,14 @@ def save_json(path, data):
 
 
 def save_csv(path, rows, headers):
-    """Save only selected headers, ignoring extra fields"""
+    """Save only selected headers, ignoring extra fields."""
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
         for r in rows:
-            clean = {h: r.get(h, "") for h in headers}  # strip extras
+            if not isinstance(r, dict):
+                continue
+            clean = {h: r.get(h, "") for h in headers}  # keep only required keys
             writer.writerow(clean)
 
 
@@ -45,7 +47,7 @@ def main():
     # Load latest programs.json
     programs = load_json(LATEST_FILE)
 
-    # Remove invalid entries (like strings)
+    # Ensure only dicts
     programs = [p for p in programs if isinstance(p, dict)]
 
     # Save snapshot
@@ -70,7 +72,7 @@ def main():
                 if (p.get("id"), s) not in old_scopes:
                     new_scopes.append({"program": p.get("id"), "scope": s})
 
-        # Save cleaned CSVs
+        # Save filtered CSVs
         save_csv(
             os.path.join(OUT_DIR, "new_programs.csv"),
             new_programs,
@@ -83,7 +85,7 @@ def main():
             headers=["program", "scope"]
         )
 
-        # Extract targets
+        # Extract all targets
         all_targets = []
         for p in programs:
             all_targets.extend(p.get("targets", []))
