@@ -48,3 +48,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./data
+      - name: Run dorking (self-hosted discovery)
+        run: python src/dorking.py
+
