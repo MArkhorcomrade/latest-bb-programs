@@ -8,96 +8,100 @@ SNAPSHOT_DIR = os.path.join(DATA_DIR, "snapshots")
 LATEST_FILE = os.path.join(DATA_DIR, "latest", "programs.json")
 OUT_DIR = "out"
 
-os.makedirs(SNAPSHOT_DIR, exist_ok=True)
-os.makedirs(os.path.dirname(LATEST_FILE), exist_ok=True)
-os.makedirs(OUT_DIR, exist_ok=True)
-
-
-def load_json(path):
-    with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
-
-
-def save_json(path, data):
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=2)
-
-
 def save_csv(path, rows, headers):
-    """Save only selected headers, ignoring extra fields."""
+    """Save rows as CSV with only selected headers (ignore extra fields)."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
-        for r in rows:
-            if not isinstance(r, dict):
+        for row in rows:
+            if not isinstance(row, dict):
                 continue
-            clean = {h: r.get(h, "") for h in headers}  # keep only required keys
+            clean = {h: row.get(h, "") for h in headers}
             writer.writerow(clean)
 
-
 def save_txt(path, lines):
+    """Save plain text file with one entry per line."""
+    os.makedirs(os.path.dirname(path), exist_ok=True)
     with open(path, "w", encoding="utf-8") as f:
-        for line in sorted(set(lines)):
-            f.write(line.strip() + "\n")
+        f.write("\n".join(sorted(set(lines))))
 
+def load_json(path):
+    if not os.path.exists(path):
+        return []
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
 
 def main():
+    os.makedirs(SNAPSHOT_DIR, exist_ok=True)
+    os.makedirs(OUT_DIR, exist_ok=True)
+
+    # load today's programs
+    programs = load_json(LATEST_FILE)
     today = datetime.utcnow().strftime("%Y-%m-%d")
 
-    # Load latest programs.json
-    programs = load_json(LATEST_FILE)
-
-    # Ensure only dicts
-    programs = [p for p in programs if isinstance(p, dict)]
-
-    # Save snapshot
     snapshot_file = os.path.join(SNAPSHOT_DIR, f"{today}.json")
-    save_json(snapshot_file, programs)
-    print(f"\n🎉 Saved snapshot {snapshot_file} ({len(programs)} programs)")
+    with open(snapshot_file, "w", encoding="utf-8") as f:
+        json.dump(programs, f, indent=2)
 
-    # Compare with previous snapshot
+    print(f"🎉 Saved snapshot {snapshot_file} ({len(programs)} programs)")
+
+    # load yesterday snapshot if exists
     snapshots = sorted(os.listdir(SNAPSHOT_DIR))
+    old_programs = []
     if len(snapshots) > 1:
-        yesterday_file = os.path.join(SNAPSHOT_DIR, snapshots[-2])
-        old_programs = load_json(yesterday_file)
-        old_ids = {p.get("id") for p in old_programs if isinstance(p, dict)}
+        yesterday = os.path.join(SNAPSHOT_DIR, snapshots[-2])
+        old_programs = load_json(yesterday)
 
-        new_programs = [p for p in programs if p.get("id") not in old_ids]
+    old_ids = {p.get("id") for p in old_programs if isinstance(p, dict)}
+    new_programs = [p for p in programs if isinstance(p, dict) and p.get("id") not in old_ids]
 
-        # collect scopes
-        old_scopes = {(p.get("id"), s) for p in old_programs if isinstance(p, dict) for s in p.get("targets", [])}
-        new_scopes = []
-        for p in programs:
-            for s in p.get("targets", []):
-                if (p.get("id"), s) not in old_scopes:
-                    new_scopes.append({"program": p.get("id"), "scope": s})
+    # extract new scopes
+    old_scopes = {
+        (s.get("program"), s.get("scope"))
+        for p in old_programs if isinstance(p, dict)
+        for s in p.get("targets", [])
+        if isinstance(s, dict)
+    }
+    new_scopes = []
+    for p in new_programs:
+        for s in p.get("targets", []):
+            if isinstance(s, dict):
+                key = (s.get("program"), s.get("scope"))
+                if key not in old_scopes:
+                    new_scopes.append(s)
 
-        # Save filtered CSVs
-        save_csv(
-            os.path.join(OUT_DIR, "new_programs.csv"),
-            new_programs,
-            headers=["id", "name", "platform"]
-        )
+    # save outputs
+    save_csv(os.path.join(OUT_DIR, "new_programs.csv"), new_programs, headers=["id", "name", "platform"])
+    save_csv(os.path.join(OUT_DIR, "new_scopes.csv"), new_scopes, headers=["program", "scope"])
 
-        save_csv(
-            os.path.join(OUT_DIR, "new_scopes.csv"),
-            new_scopes,
-            headers=["program", "scope"]
-        )
+    # targets.txt: collect all domains/hosts
+    targets = []
+    for p in programs:
+        for s in p.get("targets", []):
+            if isinstance(s, dict):
+                scope = s.get("scope", "")
+                if scope:
+                    targets.append(scope)
+    save_txt(os.path.join(OUT_DIR, "targets.txt"), targets)
 
-        # Extract all targets
-        all_targets = []
-        for p in programs:
-            all_targets.extend(p.get("targets", []))
-        save_txt(os.path.join(OUT_DIR, "targets.txt"), all_targets)
+    # HTML report
+    html_file = os.path.join(OUT_DIR, "index.html")
+    with open(html_file, "w", encoding="utf-8") as f:
+        f.write("<html><head><title>Bug Bounty Report</title></head><body>")
+        f.write(f"<h1>Bug Bounty Programs ({today})</h1>")
+        f.write(f"<p>Total programs: {len(programs)}</p>")
+        f.write("<h2>New Programs</h2><ul>")
+        for p in new_programs:
+            f.write(f"<li>{p.get('name')} ({p.get('platform')})</li>")
+        f.write("</ul>")
+        f.write("<h2>New Scopes</h2><ul>")
+        for s in new_scopes:
+            f.write(f"<li>{s.get('scope')}</li>")
+        f.write("</ul>")
+        f.write("</body></html>")
 
-        print(f"✅ Saved {len(new_programs)} new programs")
-        print(f"✅ Saved {len(new_scopes)} new scopes")
-        print(f"✅ Saved {len(all_targets)} total targets")
-
-    else:
-        print("ℹ️ First snapshot — no previous data to diff.")
-
+    print(f"✅ Outputs saved to {OUT_DIR}")
 
 if __name__ == "__main__":
     main()
