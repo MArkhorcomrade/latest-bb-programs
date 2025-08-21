@@ -1,7 +1,7 @@
 import os
 import json
 import csv
-from datetime import datetime
+from datetime import datetime, timezone
 
 DATA_DIR = "data"
 OUT_DIR = "data"
@@ -11,7 +11,7 @@ os.makedirs(SNAPSHOT_DIR, exist_ok=True)
 
 
 def load_json(path):
-    """Load JSON and ensure we always return a list of dicts only."""
+    """Load JSON and return only a list of dicts."""
     if not os.path.exists(path):
         return []
     with open(path, "r", encoding="utf-8") as f:
@@ -37,12 +37,14 @@ def save_csv(path, rows, headers):
         writer = csv.DictWriter(f, fieldnames=headers)
         writer.writeheader()
         for row in rows:
+            if not isinstance(row, dict):
+                continue
             clean_row = {h: row.get(h, "") for h in headers}
             writer.writerow(clean_row)
 
 
 def main():
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     platforms = ["hackerone", "bugcrowd", "intigriti", "federacy", "yeswehack", "chaos"]
 
@@ -55,6 +57,14 @@ def main():
                 print(f"⚠️ Skipping invalid entry in {platform}: {p}")
                 continue
             p["platform"] = platform
+
+            # Ensure targets is a list of dicts
+            targets = p.get("targets", [])
+            if not isinstance(targets, list):
+                p["targets"] = []
+            else:
+                p["targets"] = [t for t in targets if isinstance(t, dict)]
+
             programs.append(p)
         print(f"✅ Added {len(programs) - count_before} from {platform}.json")
 
