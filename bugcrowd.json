@@ -6504,6 +6504,84 @@
     }
   },
   {
+    "name": "Block Open Source",
+    "url": "https://bugcrowd.com/engagements/blockopensource",
+    "allows_disclosure": true,
+    "managed_by_bugcrowd": true,
+    "safe_harbor": "full",
+    "max_payout": 5000,
+    "targets": {
+      "in_scope": [
+        {
+          "type": "other",
+          "target": "https://github.com/afterpay/sdk-ios",
+          "uri": "https://github.com/afterpay/sdk-ios",
+          "name": "https://github.com/afterpay/sdk-ios",
+          "ipAddress": ""
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/afterpay/sdk-android",
+          "uri": "https://github.com/afterpay/sdk-android",
+          "name": "https://github.com/afterpay/sdk-android",
+          "ipAddress": ""
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/cashapp/cash-app-pay-ios-sdk",
+          "uri": "https://github.com/cashapp/cash-app-pay-ios-sdk",
+          "name": "https://github.com/cashapp/cash-app-pay-ios-sdk",
+          "ipAddress": ""
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/cashapp/cash-app-pay-android-sdk",
+          "uri": "https://github.com/cashapp/cash-app-pay-android-sdk",
+          "name": "https://github.com/cashapp/cash-app-pay-android-sdk",
+          "ipAddress": ""
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/cashapp/hermit",
+          "uri": "https://github.com/cashapp/hermit",
+          "name": "https://github.com/cashapp/hermit",
+          "ipAddress": ""
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/cashapp/misk",
+          "uri": "https://github.com/cashapp/misk",
+          "name": "https://github.com/cashapp/misk",
+          "ipAddress": ""
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/square/okhttp",
+          "uri": "https://github.com/square/okhttp",
+          "name": "https://github.com/square/okhttp",
+          "ipAddress": null
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/square/okio",
+          "uri": "https://github.com/square/okio",
+          "name": "https://github.com/square/okio",
+          "ipAddress": null
+        },
+        {
+          "type": "other",
+          "target": "https://github.com/square/wire",
+          "uri": "https://github.com/square/wire",
+          "name": "https://github.com/square/wire",
+          "ipAddress": null
+        }
+      ],
+      "out_of_scope": [
+
+      ]
+    }
+  },
+  {
     "name": "Bolt Technology OÜ",
     "url": "https://bugcrowd.com/engagements/bolt-og",
     "allows_disclosure": false,
@@ -19026,41 +19104,6 @@
         },
         {
           "type": "website",
-          "target": "https://www.compareandconnect.com.au/",
-          "uri": "",
-          "name": "https://www.compareandconnect.com.au/",
-          "ipAddress": ""
-        },
-        {
-          "type": "website",
-          "target": "https://agent.compareandconnect.com.au/",
-          "uri": "",
-          "name": "https://agent.compareandconnect.com.au/",
-          "ipAddress": ""
-        },
-        {
-          "type": "website",
-          "target": "https://fastconnect.co.nz",
-          "uri": "",
-          "name": "https://fastconnect.co.nz",
-          "ipAddress": ""
-        },
-        {
-          "type": "website",
-          "target": "https://Yourporter.com.au",
-          "uri": "",
-          "name": "https://Yourporter.com.au",
-          "ipAddress": ""
-        },
-        {
-          "type": "website",
-          "target": "https://raywhitehomenow.com/ ",
-          "uri": "",
-          "name": "https://raywhitehomenow.com/ ",
-          "ipAddress": ""
-        },
-        {
-          "type": "website",
           "target": "https://portal.anz.kinergysolutions.com",
           "uri": "https://portal.anz.kinergysolutions.com",
           "name": "portal.anz.kinergysolutions.com",
@@ -19130,6 +19173,41 @@
           "uri": "",
           "name": "https://origin-energy.formstack.com/**",
           "ipAddress": null
+        },
+        {
+          "type": "website",
+          "target": "https://www.compareandconnect.com.au/",
+          "uri": "",
+          "name": "https://www.compareandconnect.com.au/",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "https://agent.compareandconnect.com.au/",
+          "uri": "",
+          "name": "https://agent.compareandconnect.com.au/",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "https://fastconnect.co.nz",
+          "uri": "",
+          "name": "https://fastconnect.co.nz",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "https://Yourporter.com.au",
+          "uri": "",
+          "name": "https://Yourporter.com.au",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "https://raywhitehomenow.com/ ",
+          "uri": "",
+          "name": "https://raywhitehomenow.com/ ",
+          "ipAddress": ""
         },
         {
           "type": "website",
@@ -22112,84 +22190,6 @@
     }
   },
   {
-    "name": "Block Open Source",
-    "url": "https://bugcrowd.com/engagements/squareopensource",
-    "allows_disclosure": true,
-    "managed_by_bugcrowd": true,
-    "safe_harbor": "full",
-    "max_payout": 5000,
-    "targets": {
-      "in_scope": [
-        {
-          "type": "other",
-          "target": "https://github.com/afterpay/sdk-ios",
-          "uri": "https://github.com/afterpay/sdk-ios",
-          "name": "https://github.com/afterpay/sdk-ios",
-          "ipAddress": ""
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/afterpay/sdk-android",
-          "uri": "https://github.com/afterpay/sdk-android",
-          "name": "https://github.com/afterpay/sdk-android",
-          "ipAddress": ""
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/cashapp/cash-app-pay-ios-sdk",
-          "uri": "https://github.com/cashapp/cash-app-pay-ios-sdk",
-          "name": "https://github.com/cashapp/cash-app-pay-ios-sdk",
-          "ipAddress": ""
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/cashapp/cash-app-pay-android-sdk",
-          "uri": "https://github.com/cashapp/cash-app-pay-android-sdk",
-          "name": "https://github.com/cashapp/cash-app-pay-android-sdk",
-          "ipAddress": ""
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/cashapp/hermit",
-          "uri": "https://github.com/cashapp/hermit",
-          "name": "https://github.com/cashapp/hermit",
-          "ipAddress": ""
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/cashapp/misk",
-          "uri": "https://github.com/cashapp/misk",
-          "name": "https://github.com/cashapp/misk",
-          "ipAddress": ""
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/square/okhttp",
-          "uri": "https://github.com/square/okhttp",
-          "name": "https://github.com/square/okhttp",
-          "ipAddress": null
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/square/okio",
-          "uri": "https://github.com/square/okio",
-          "name": "https://github.com/square/okio",
-          "ipAddress": null
-        },
-        {
-          "type": "other",
-          "target": "https://github.com/square/wire",
-          "uri": "https://github.com/square/wire",
-          "name": "https://github.com/square/wire",
-          "ipAddress": null
-        }
-      ],
-      "out_of_scope": [
-
-      ]
-    }
-  },
-  {
     "name": "Statuspage",
     "url": "https://bugcrowd.com/engagements/statuspage",
     "allows_disclosure": false,
@@ -22659,6 +22659,13 @@
           "target": "https://*.uscellular.com",
           "uri": "https://*.uscellular.com",
           "name": "*.uscellular.com",
+          "ipAddress": ""
+        },
+        {
+          "type": "website",
+          "target": "https://dashboard-04.moengage.com",
+          "uri": "https://dashboard-04.moengage.com",
+          "name": "dashboard-04.moengage.com",
           "ipAddress": ""
         },
         {
@@ -23876,7 +23883,7 @@
     "url": "https://bugcrowd.com/engagements/tripadvisor-bb-og",
     "allows_disclosure": false,
     "managed_by_bugcrowd": true,
-    "safe_harbor": null,
+    "safe_harbor": "full",
     "max_payout": 5000,
     "targets": {
       "in_scope": [
@@ -23987,15 +23994,15 @@
         },
         {
           "type": "android",
-          "target": "Tripadvisor Android App",
-          "uri": "",
+          "target": "https://play.google.com/store/apps/details?id=com.tripadvisor.tripadvisor&hl=en",
+          "uri": "https://play.google.com/store/apps/details?id=com.tripadvisor.tripadvisor&hl=en",
           "name": "Tripadvisor Android App",
           "ipAddress": null
         },
         {
           "type": "ios",
-          "target": "Tripadvisor iOS App",
-          "uri": "",
+          "target": "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795",
+          "uri": "https://apps.apple.com/us/app/tripadvisor-plan-book-trips/id284876795",
           "name": "Tripadvisor iOS App",
           "ipAddress": null
         },
