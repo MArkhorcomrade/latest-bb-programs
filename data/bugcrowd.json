@@ -13918,13 +13918,6 @@
       "in_scope": [
         {
           "type": "website",
-          "target": "https://www.simplify.com/commerce/ ",
-          "uri": "https://www.simplify.com/commerce/ ",
-          "name": "Simplify Commerce - www.simplify.com/commerce/ ",
-          "ipAddress": null
-        },
-        {
-          "type": "website",
           "target": "https://www.mastercard.us/en-us.html",
           "uri": "https://www.mastercard.us/en-us.html",
           "name": "MasterCard.us - www.mastercard.us/en-us.html",
@@ -22763,13 +22756,6 @@
         },
         {
           "type": "website",
-          "target": "https://techapps.t-mobile.com",
-          "uri": "https://techapps.t-mobile.com",
-          "name": "techapps.t-mobile.com",
-          "ipAddress": ""
-        },
-        {
-          "type": "website",
           "target": "/self-service-*",
           "uri": "",
           "name": "/self-service-*",
@@ -26431,6 +26417,34 @@
           "uri": "",
           "name": "api.tapayments.com",
           "ipAddress": ""
+        }
+      ]
+    }
+  },
+  {
+    "name": "Volkswagen ",
+    "url": "https://bugcrowd.com/engagements/volkswagen-og",
+    "allows_disclosure": false,
+    "managed_by_bugcrowd": true,
+    "safe_harbor": "full",
+    "max_payout": 2500,
+    "targets": {
+      "in_scope": [
+        {
+          "type": "website",
+          "target": "*.volkswagen.de",
+          "uri": "",
+          "name": "*.volkswagen.de",
+          "ipAddress": null
+        }
+      ],
+      "out_of_scope": [
+        {
+          "type": "website",
+          "target": "https://erwin.volkswagen.de",
+          "uri": "https://erwin.volkswagen.de",
+          "name": "erwin.volkswagen.de",
+          "ipAddress": null
         }
       ]
     }
