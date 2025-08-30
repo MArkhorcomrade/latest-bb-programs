@@ -7268,7 +7268,7 @@
     "allows_disclosure": false,
     "managed_by_bugcrowd": true,
     "safe_harbor": "full",
-    "max_payout": 40000,
+    "max_payout": 20000,
     "targets": {
       "in_scope": [
         {
@@ -15803,7 +15803,7 @@
           "type": "android",
           "target": "https://play.google.com/store/apps/details?id=com.nu.production&hl=pt_BR&gl=US&pli=1",
           "uri": "https://play.google.com/store/apps/details?id=com.nu.production&hl=pt_BR&gl=US&pli=1",
-          "name": "Nubank Android: Playstore",
+          "name": "Nubank Android: Play Store",
           "ipAddress": ""
         },
         {
