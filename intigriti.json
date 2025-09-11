@@ -1653,8 +1653,578 @@
     "targets": {
       "in_scope": [
         {
+          "type": "iprange",
+          "endpoint": "31.31.128.0/19",
+          "description": "Please check the out of scope section for excluded subranges.",
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.5.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "79.132.241.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.211.188.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.219.128.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.2.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "85.234.203.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "85.234.205.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.211.130.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.11.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.211.138.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "85.234.192.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.3.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.219.132.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.4.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "85.234.204.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.8.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.0.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.1.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.128.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.140.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.141.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.143.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.143.0/25",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.150.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.158.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "31.31.159.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "45.11.166.40/29",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "77.109.64.0/18",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "79.132.224.0/19",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "80.91.144.0/20",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "85.234.192.0/19",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "109.236.128.0/20",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "185.29.108.0/22",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "185.95.72.0/22",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "185.195.28.0/22",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "193.110.255.128/28",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.0.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.1.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "212.71.8.0/24",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.211.150.250/32",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "213.219.150.250/32",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "iprange",
+          "endpoint": "217.64.240.0/20",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://livechat.citymesh.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://auth.citymesh.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://extra.citymesh.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://fleet.citymeshconnect.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://my.citymesh.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://cabmanager.citymesh.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://dialhome.ncentric.be/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://auth.wifilab.be/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://extra.edpnet.net/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://api-gateway.citymesh.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://cc.safety-drones.com/",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.isitaplane.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.towereye.eu",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh-connect.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.mydigi.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.net",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.recruitee.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.fr",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ps-radiocom.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.io",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.towereye.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ptxbac.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.edpnet.nl",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.insky.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ps-radiocom.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.edpnet.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ctmsh.co",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ncentric.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
           "type": "wildcard",
           "endpoint": "*.antwerpfreewifi.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.engiem2m.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.myiot.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.wflb.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.wifinmbssncb.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.safety-drones.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.connectow.eu",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.wifilab.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.safety-drones.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.safetydrones.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.guide",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.eu",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.gowifi.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.engiem2m.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.digi-mobile.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymeshconnect.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymeshconnect.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh-connect.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ncentric.cloud",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.nl",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.ncentric.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.antwerpfreewifi.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.biotechnology-citymesh.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.citymesh.com",
           "description": null,
           "impact": "No Bounty"
         },
@@ -1720,6 +2290,18 @@
         },
         {
           "type": "wildcard",
+          "endpoint": "*.connectingsenses.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.connectingsenses.com",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
           "endpoint": "*.connectow.be",
           "description": null,
           "impact": "No Bounty"
@@ -1733,6 +2315,18 @@
         {
           "type": "wildcard",
           "endpoint": "*.engiem2m.be",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.edpnet.net",
+          "description": null,
+          "impact": "No Bounty"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.edpnet.be",
           "description": null,
           "impact": "No Bounty"
         },
@@ -1805,12 +2399,6 @@
         {
           "type": "wildcard",
           "endpoint": "*.wifinmbssncb.be",
-          "description": null,
-          "impact": "No Bounty"
-        },
-        {
-          "type": "iprange",
-          "endpoint": "31.31.128.0/19",
           "description": null,
           "impact": "No Bounty"
         }
@@ -4527,6 +5115,397 @@
         {
           "type": "url",
           "endpoint": "www.trismegistos.org",
+          "description": null,
+          "impact": "Out of scope"
+        }
+      ]
+    }
+  },
+  {
+    "id": "768ad323-335b-4710-9370-6b81925c122f",
+    "name": "Kinepolis Group",
+    "company_handle": "kinepolis",
+    "handle": "website",
+    "url": "https://www.intigriti.com/programs/kinepolis/website/detail",
+    "status": "open",
+    "confidentiality_level": "public",
+    "tacRequired": false,
+    "twoFactorRequired": false,
+    "min_bounty": {
+      "value": 0,
+      "currency": "EUR"
+    },
+    "max_bounty": {
+      "value": 5000,
+      "currency": "EUR"
+    },
+    "targets": {
+      "in_scope": [
+        {
+          "type": "wildcard",
+          "endpoint": "*.klubcinema.fr",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.megatix.be  ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "booking.mjrtheatres.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "extras.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "identityserver.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "kinepolis.megatix.be",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "luxfilmfestfilms.megatix.be",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "luxfilmfestproducts.megatix.be",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "luxfilmfesttickets.megatix.be",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "movieapi.kinepolis.megatix.be",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "tickets.kinepolis.be",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "tickets.kinepolis.ch",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "tickets.kinepolis.es",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "tickets.kinepolis.fr",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "tickets.kinepolis.lu",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "tickets.kinepolis.nl",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "userprofile-ui.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.be ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.ch ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.com ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.es ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.fr ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.lu ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.nl ",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.mjrtheatres.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "business.kinepolis.be",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "business.kinepolis.lu",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "business.kinepolis.nl",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "android",
+          "endpoint": "com.inthepocket.kinepolis",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "extras-acc.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://movieclub-int.kinepolis.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://movienow-int.kinepolis.be/admin",
+          "description": "We are planning on using a new way to authenticate our INT/UAT testers, and it's active on this URL. Are there weaknesses on this page?",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://shop-acc.kinepolis.be/",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "identityserver-acc.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "kinepolis-studio.be",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "ios",
+          "endpoint": "kinepolis/id368204284",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "android",
+          "endpoint": "nz.co.vista.android.movie.mjrtheatres",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "stage.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "userprofile-acc.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "www.kinepolis.biz",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.kinepolis.be",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.kinepolis.ch",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.kinepolis.com",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.kinepolis.fr",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.kinepolis.lu",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.kinepolis.nl",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.landmarkcinemas.com",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.mjrtheatres.com",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "ios",
+          "endpoint": "522089287",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "url",
+          "endpoint": "egaming.kinepolis.es",
+          "description": null,
+          "impact": "No Bounty"
+        }
+      ],
+      "out_of_scope": [
+        {
+          "type": "wildcard",
+          "endpoint": "*.cineramabios.nl",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "dev.kinepolis.com",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "helpdesk.landmarkcinemas.com",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "jobs.kinepolis.com",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "l.kinepolis.com",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "openx.kinepolis.com",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "shop.kinepolis.be ",
+          "description": "We'll be limiting testing for our eshop to the testing environment (shop-acc.kinepolis.be) for the time being.",
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "shop.kinepolis.es",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "shop.kinepolis.fr ",
+          "description": null,
+          "impact": "Out of scope"
+        },
+        {
+          "type": "url",
+          "endpoint": "shop.kinepolis.lu",
           "description": null,
           "impact": "Out of scope"
         }
@@ -8384,6 +9363,44 @@
     }
   },
   {
+    "id": "87a468af-75ac-4e99-b061-0c40517a784c",
+    "name": "Suivo bug bounty",
+    "company_handle": "suivo",
+    "handle": "suivoweb",
+    "url": "https://www.intigriti.com/programs/suivo/suivoweb/detail",
+    "status": "open",
+    "confidentiality_level": "public",
+    "tacRequired": false,
+    "twoFactorRequired": false,
+    "min_bounty": {
+      "value": 0,
+      "currency": "EUR"
+    },
+    "max_bounty": {
+      "value": 2000,
+      "currency": "EUR"
+    },
+    "targets": {
+      "in_scope": [
+        {
+          "type": "url",
+          "endpoint": " aweb.suivo.com",
+          "description": "For this domain, you can self-register. More information see FAQ",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "asupport.suivo.com",
+          "description": null,
+          "impact": "Tier 2"
+        }
+      ],
+      "out_of_scope": [
+
+      ]
+    }
+  },
+  {
     "id": "82be1e9b-f9ab-45e7-82fd-9ba65be37645",
     "name": "Tempo-Team ",
     "company_handle": "randstad",
@@ -10412,6 +11429,140 @@
           "type": "url",
           "endpoint": "www.voiscooters.com",
           "description": "Informational Website",
+          "impact": "Tier 3"
+        }
+      ],
+      "out_of_scope": [
+
+      ]
+    }
+  },
+  {
+    "id": "afc4415d-c004-4cf8-9a12-e0f18cde6db5",
+    "name": "WP Engine Bug Bounty",
+    "company_handle": "wpengine",
+    "handle": "wpenginebugbounty",
+    "url": "https://www.intigriti.com/programs/wpengine/wpenginebugbounty/detail",
+    "status": "open",
+    "confidentiality_level": "public",
+    "tacRequired": false,
+    "twoFactorRequired": false,
+    "min_bounty": {
+      "value": 0,
+      "currency": "EUR"
+    },
+    "max_bounty": {
+      "value": 2500,
+      "currency": "EUR"
+    },
+    "targets": {
+      "in_scope": [
+        {
+          "type": "url",
+          "endpoint": "https://app.getflywheel.com",
+          "description": "This is the primary site for researchers to register and test both the Flywheel App as well as the Flywheel Platform. We will not provide credentials or bypass verification controls (i.e, a researcher will need to either provide a valid phone number or credit card to have a live site), but a researcher may register a demo site that matches the platform's functionality without verification. **Please use your Intigriti credentials to register.** Please note that any issues regarding an individual WordPress installation on the Flywheel platform, outside of plugins owned by WP Engine/Flywheel, will be considered out of scope as we do not monitor or manage customer content. We are, however, very interested in issues that may compromise customer isolation on the platform or cause data to be leaked from either a host or an unrelated customer site.",
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://getflywheel.com",
+          "description": "This site is the landing page for Flywheel-branded services. Most of this data is static, but there are a number of dynamic fields and functionalities that are available to be tested. Support, contact forms, and chat functionality are out-of-scope - specifically, the Sales Questions functionality or https://getflywheel.com/schedule-a-demo/. No testing should be done against these targets or any 3rd party services. Please do not contact our Support or Sales teams as part of your testing.",
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://my.wpengine.com",
+          "description": "The User Portal for WP Engine. Customers manage their WordPress sites, addons, and billing details through this portal. **No credentials will be provided**. Researchers are free to test functionally that requires authentication with their own accounts. Please note: no reimbursements will be made for money spent to access this part of the application.\n\nResearchers may sign up for a free trial of our Headless Platform which provides full access to the User Portal and WP Engine platform for testing.  The trial signup page can be found at https://wpengine.com/headless-wordpress/ .  Please use your Intigriti researcher email address when signing up.",
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://payments.wpengine.com",
+          "description": null,
+          "impact": "Tier 1"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://wpengine.com",
+          "description": "This the landing page for the main WP Engine website. Most of this data is static, but there are a number of dynamic fields and functionalities that are available to be tested. Support, contact forms, and Live Chat are out-of-scope - specifically, the Sales Questions functionality and https://wpengine.com/contact/. No testing should be done against these targets or any 3rd party services.\n\n**Please Note:** All customer sites on subdomains of wpengine.com, unless explicitly listed as in scope, are out of scope.",
+          "impact": "Tier 1"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*. advancedcustomfields.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*. bettersearchreplace.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.deliciousbrains.com",
+          "description": null,
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.localwp.com",
+          "description": "Local is the #1 local WordPress development tool.  ",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.nitropack.io",
+          "description": "With NitroPack, you get everything you need for a fast website, in one place. Features like caching, image optimization, and a CDN are ready to go out of the box.\n\n",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.studiopress.com",
+          "description": "The studiopress.com, demo.studiopress.com, and my.studiopress.com sites are public facing marketing and WordPress theme e-commerce sites. **No credentials will be provided.** Researchers are free to test functionally that requires authentication with their own accounts.",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.wpengine.io",
+          "description": "This is an apex domain used for microservices hosted as subdomains and service-to-service APIs - these are intended to be \"internal\" services like APIs but have public DNS records and some may be publicly-accessible.",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "wildcard",
+          "endpoint": "*.wpesvc.net",
+          "description": "This is an apex domain used for microservices hosted as subdomains and service-to-service APIs - these are intended to be \"internal\" services like APIs but have public DNS records and some may be publicly-accessible.",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "other",
+          "endpoint": "WP Engine-developed WordPress Plugins and Themes",
+          "description": "We accept any reports of vulnerabilities in plugins or themes managed or developed by WP Engine, with the exception of any application-level vulnerabilities in the Out of Scope section below.  These free versions closely mirror their paid counterparts, so any vulnerabilities discovered should be applicable to both the paid or free plugins.\n\nWe also accept reports for the following plugins:\nAdvanced Custom Fields\nBetter Search Replace \nWP Migrate\nWP Offload Media for Amazon S3, DigitalOcean Spaces, and Google Cloud Storage\nWP Offload SES\n",
+          "impact": "Tier 2"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://makeshift.film",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://studiopress.blog",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://torquemag.io",
+          "description": null,
+          "impact": "Tier 3"
+        },
+        {
+          "type": "url",
+          "endpoint": "https://velocitize.com",
+          "description": null,
           "impact": "Tier 3"
         }
       ],
